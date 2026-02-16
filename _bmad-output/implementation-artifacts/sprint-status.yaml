@@ -48,8 +48,8 @@ development_status:
   epic-1-retrospective: optional
 
   # Epic 2: Task Creation & Assignment
-  epic-2: backlog
-  2-1-task-creation-interface: backlog
+  epic-2: in-progress
+  2-1-task-creation-interface: review
   2-2-task-assignment-system: backlog
   2-3-intern-task-view: backlog
   2-4-task-question-thread: backlog

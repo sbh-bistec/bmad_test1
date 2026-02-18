@@ -10,6 +10,9 @@ stepsCompleted:
   - step-08-scoping
   - step-09-functional
   - step-10-nonfunctional
+  - step-e-01-discovery
+  - step-e-02-review
+  - step-e-03-edit
 inputDocuments:
   - '_bmad-output/planning-artifacts/product-brief-t2-2026-02-12.md'
   - '_bmad-output/brainstorming/brainstorming-session-2026-02-11.md'
@@ -290,6 +293,68 @@ workflowType: 'prd'
 **Market Risks:** Focus on one team's spreadsheet pain point first, prove value before expanding
 **Resource Risks:** MVP designed for 1-2 person team, can launch with manual processes initially
 
+## Risk Analysis & Pre-Mortem
+
+### Failure Scenario Analysis
+
+**Scenario 1: User Adoption Failure**
+- **Root Cause:** Team continues using spreadsheet due to familiarity or perceived complexity
+- **Early Warning:** Low login rates after 1 week, spreadsheet still being updated
+- **Mitigation:** Simplify onboarding, provide migration assistance, highlight time savings
+- **Contingency:** Add spreadsheet import/export features, run adoption workshops
+
+**Scenario 2: Technical Performance Issues**
+- **Root Cause:** Dashboard becomes slow as task volume grows, real-time updates fail
+- **Early Warning:** Page load times >3 seconds, missed notifications, user complaints about lag
+- **Mitigation:** Implement performance monitoring, optimize database queries, use efficient polling
+- **Contingency:** Fallback to manual refresh, implement caching layers, scale infrastructure
+
+**Scenario 3: SSO Integration Problems**
+- **Root Cause:** Company SSO system incompatible or IT department blocks integration
+- **Early Warning:** Authentication failures, IT access denied, login errors
+- **Mitigation:** Early IT engagement, fallback authentication system, clear integration requirements
+- **Contingency:** Implement separate authentication system, use email-based login
+
+**Scenario 4: Scope Creep Leading to Delay**
+- **Root Cause:** Adding features beyond MVP, attempting to solve all problems at once
+- **Early Warning:** Feature requests being added, timeline slipping, complexity increasing
+- **Mitigation:** Strict MVP definition, feature parking lot, regular scope reviews
+- **Contingency:** Cut non-essential features, delay advanced features to post-MVP
+
+**Scenario 5: Data Loss or Corruption**
+- **Root Cause:** Database issues, backup failures, concurrent access problems
+- **Early Warning:** Missing tasks, inconsistent data, error logs increasing
+- **Mitigation:** Robust backup strategy, database transactions, data validation
+- **Contingency:** Manual data recovery processes, audit trails, rollback procedures
+
+### Critical Success Factors
+
+**Must-Have for Success:**
+- Team Lead can see all intern status in under 30 seconds
+- Email notifications work reliably
+- SSO authentication functions smoothly
+- Dashboard remains fast as usage grows
+
+**Failure Thresholds:**
+- >20% of tasks still tracked in spreadsheet after 2 weeks = Adoption failure
+- >5 second dashboard load time = Performance failure
+- >1 authentication failure per 10 logins = SSO failure
+
+### Monitoring & Early Detection
+
+**Key Metrics to Track:**
+- Daily active users (Team Leads and Interns)
+- Task creation rate vs. spreadsheet usage
+- Dashboard load times
+- Email delivery success rates
+- Authentication success rates
+- User satisfaction feedback
+
+**Review Cadence:**
+- Daily: Performance metrics monitoring
+- Weekly: Adoption and usage patterns
+- Monthly: User feedback and satisfaction
+
 ## Steps Completed
 
 - step-01-define-problem
@@ -300,6 +365,7 @@ workflowType: 'prd'
 - step-06-web-app-requirements
 - step-07-implementation-considerations
 - step-08-scoping
+- step-e-03-edit (pre-mortem analysis added)
 
 ## Project Scoping & Phased Development
 

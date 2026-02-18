@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t2 UX Design Directions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .direction-card { transition: all 0.3s ease; }
+        .direction-card:hover { transform: translateY(-2px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .status-badge { transition: all 0.2s ease; }
+        .status-badge:hover { transform: scale(1.05); }
+        .task-card { transition: all 0.2s ease; }
+        .task-card:hover { border-color: #3B82F6; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.5s ease-out; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-semibold text-gray-900">t2 Design Directions</h1>
+                    <span class="ml-2 px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded">UX Exploration</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleComparison()" class="px-3 py-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50">
+                        Compare Mode
+                    </button>
+                    <select onchange="changeDirection(this.value)" class="px-3 py-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded">
+                        <option value="1">Direction 1: Dashboard-first</option>
+                        <option value="2">Direction 2: Dense Layout</option>
+                        <option value="3">Direction 3: Split View</option>
+                        <option value="4">Direction 4: Minimalist</option>
+                        <option value="5">Direction 5: Communication-centric</option>
+                        <option value="6">Direction 6: Analytics-focused</option>
+                        <option value="7">Direction 7: Mobile-first</option>
+                        <option value="8">Direction 8: Hybrid</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Direction Info -->
+        <div class="mb-8 p-6 bg-white rounded-lg shadow-sm border border-gray-200">
+            <h2 id="direction-title" class="text-2xl font-bold text-gray-900 mb-2">Direction 1: Dashboard-first with Card-based Task Organization</h2>
+            <p id="direction-description" class="text-gray-600">Emphasizes instant team visibility through a clean, scannable dashboard layout with card-based task organization.</p>
+        </div>
+
+        <!-- Design Showcase -->
+        <div id="design-showcase" class="space-y-8">
+            <!-- Direction 1: Dashboard-first -->
+            <div id="direction-1" class="direction-showcase">
+                <!-- Dashboard Overview -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Team Dashboard</h3>
+                        
+                        <!-- Overview Cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                            <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                                <div class="text-2xl font-bold text-blue-900">24</div>
+                                <div class="text-sm text-blue-700">Total Tasks</div>
+                            </div>
+                            <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                                <div class="text-2xl font-bold text-yellow-900">8</div>
+                                <div class="text-sm text-yellow-700">In Progress</div>
+                            </div>
+                            <div class="p-4 bg-green-50 rounded-lg border border-green-200">
+                                <div class="text-2xl font-bold text-green-900">13</div>
+                                <div class="text-sm text-green-700">Completed</div>
+                            </div>
+                            <div class="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                                <div class="text-2xl font-bold text-purple-900">3</div>
+                                <div class="text-sm text-purple-700">Pending Review</div>
+                            </div>
+                        </div>
+
+                        <!-- Team Status Table -->
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Intern</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Assigned</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">In Progress</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Submitted</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Completed</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium">AA</div>
+                                                <div class="ml-3">
+                                                    <div class="text-sm font-medium text-gray-900">Ahmed Ali</div>
+                                                    <div class="text-xs text-gray-500">Active now</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">5</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">2</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">1</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">2</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-medium">SK</div>
+                                                <div class="ml-3">
+                                                    <div class="text-sm font-medium text-gray-900">Sara Khan</div>
+                                                    <div class="text-xs text-gray-500">2h ago</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">4</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">1</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">2</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">1</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Cards View -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Task Cards - Ahmed Ali</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Task Card 1 -->
+                            <div class="task-card p-4 border border-gray-200 rounded-lg hover:shadow-md">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="font-medium text-gray-900">Build Login Page</h4>
+                                    <span class="status-badge px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">In Progress</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Create Figma mockup for login page with email/password authentication.</p>
+                                <div class="flex justify-between items-center text-xs text-gray-500">
+                                    <span>Assigned: Feb 10</span>
+                                    <span>Due: Feb 15</span>
+                                </div>
+                                <div class="mt-3 flex space-x-2">
+                                    <button class="px-3 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded hover:bg-blue-100">View Details</button>
+                                    <button class="px-3 py-1 text-xs font-medium text-gray-600 bg-gray-50 rounded hover:bg-gray-100">Ask Question</button>
+                                </div>
+                            </div>
+
+                            <!-- Task Card 2 -->
+                            <div class="task-card p-4 border border-gray-200 rounded-lg hover:shadow-md">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="font-medium text-gray-900">API Documentation</h4>
+                                    <span class="status-badge px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">Submitted</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Document all user endpoints with examples and response formats.</p>
+                                <div class="flex justify-between items-center text-xs text-gray-500">
+                                    <span>Assigned: Feb 8</span>
+                                    <span>Due: Feb 12</span>
+                                </div>
+                                <div class="mt-3 flex space-x-2">
+                                    <button class="px-3 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded hover:bg-blue-100">View Details</button>
+                                    <button class="px-3 py-1 text-xs font-medium text-gray-600 bg-gray-50 rounded hover:bg-gray-100">Add Comment</button>
+                                </div>
+                            </div>
+
+                            <!-- Task Card 3 -->
+                            <div class="task-card p-4 border border-gray-200 rounded-lg hover:shadow-md">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="font-medium text-gray-900">Database Schema</h4>
+                                    <span class="status-badge px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Completed</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Design and implement database schema for user management.</p>
+                                <div class="flex justify-between items-center text-xs text-gray-500">
+                                    <span>Assigned: Feb 5</span>
+                                    <span>Completed: Feb 9</span>
+                                </div>
+                                <div class="mt-3 flex space-x-2">
+                                    <button class="px-3 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded hover:bg-blue-100">View Details</button>
+                                    <button class="px-3 py-1 text-xs font-medium text-green-600 bg-green-50 rounded hover:bg-green-100">View Feedback</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Communication Interface -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Task Communication</h3>
+                        <div class="border border-gray-200 rounded-lg">
+                            <div class="p-4 border-b border-gray-200">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="font-medium text-gray-900">Build Login Page</h4>
+                                    <span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">In Progress</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Create Figma mockup for login page with email/password authentication.</p>
+                            </div>
+                            <div class="p-4 space-y-4 max-h-64 overflow-y-auto">
+                                <div class="flex space-x-3">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium flex-shrink-0">AA</div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-1">
+                                            <span class="text-sm font-medium text-gray-900">Ahmed Ali</span>
+                                            <span class="text-xs text-gray-500">Feb 12, 2:30 PM</span>
+                                        </div>
+                                        <div class="text-sm text-gray-700">Should I include social login options like Google and GitHub?</div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-medium flex-shrink-0">SK</div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-1">
+                                            <span class="text-sm font-medium text-gray-900">Fatima (Team Lead)</span>
+                                            <span class="text-xs text-gray-500">Feb 12, 3:15 PM</span>
+                                        </div>
+                                        <div class="text-sm text-gray-700">Good question! For MVP, let's stick to email/password only. We can add social login in phase 2.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 border-t border-gray-200">
+                                <div class="flex space-x-2">
+                                    <input type="text" placeholder="Type your message..." class="flex-1 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <button class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="mt-8 p-6 bg-white rounded-lg shadow-sm border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Evaluation Criteria</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-start space-x-3">
+                    <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div>
+                        <div class="font-medium text-gray-900">Layout Intuitiveness</div>
+                        <div class="text-sm text-gray-600">Information hierarchy matches user priorities</div>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div>
+                        <div class="font-medium text-gray-900">Interaction Style</div>
+                        <div class="text-sm text-gray-600">Fits core experience of instant visibility</div>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div>
+                        <div class="font-medium text-gray-900">Visual Weight</div>
+                        <div class="text-sm text-gray-600">Appropriate density for corporate environment</div>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div>
+                        <div class="font-medium text-gray-900">Brand Alignment</div>
+                        <div class="text-sm text-gray-600">Supports confidence and safety goals</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let currentDirection = 1;
+        let comparisonMode = false;
+
+        function changeDirection(direction) {
+            currentDirection = parseInt(direction);
+            updateDirectionInfo();
+            // In a real implementation, this would switch between different design mockups
+            console.log(`Switching to direction ${direction}`);
+        }
+
+        function updateDirectionInfo() {
+            const titles = {
+                1: "Direction 1: Dashboard-first with Card-based Task Organization",
+                2: "Direction 2: Dense Layout for Power Users",
+                3: "Direction 3: Split View with Real-time Updates",
+                4: "Direction 4: Minimalist with Progressive Disclosure",
+                5: "Direction 5: Communication-centric",
+                6: "Direction 6: Analytics-focused",
+                7: "Direction 7: Mobile-first Responsive",
+                8: "Direction 8: Hybrid Approach"
+            };
+
+            const descriptions = {
+                1: "Emphasizes instant team visibility through a clean, scannable dashboard layout with card-based task organization.",
+                2: "Optimized for power users with dense information display and keyboard-driven navigation.",
+                3: "Split-screen design with real-time updates and comprehensive team visibility.",
+                4: "Clean, minimalist approach with progressive disclosure of information.",
+                5: "Communication-focused design with chat-like interfaces and threaded conversations.",
+                6: "Analytics and data visualization focused with comprehensive reporting dashboards.",
+                7: "Mobile-first responsive design optimized for tablet and mobile access.",
+                8: "Hybrid approach combining the best elements from multiple directions."
+            };
+
+            document.getElementById('direction-title').textContent = titles[currentDirection];
+            document.getElementById('direction-description').textContent = descriptions[currentDirection];
+        }
+
+        function toggleComparison() {
+            comparisonMode = !comparisonMode;
+            // In a real implementation, this would show side-by-side comparisons
+            console.log(`Comparison mode: ${comparisonMode}`);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDirectionInfo();
+        });
+    </script>
+</body>
+</html>
